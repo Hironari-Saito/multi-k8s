@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: seekstar-app-tls
+spec:
+  secretName: seekstar-app
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: seekstar.app
+  dnsNames:
+    - seekstar.app
+    - www.seekstar.app
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - seekstar.app
+          - www.seekstar.app

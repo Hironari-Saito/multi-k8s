@@ -119,3 +119,26 @@ helm install my-release ingress-nginx/ingress-nginx
 6. wait for tests to show up 'green'
 7. merge the PR
 8. see changes appear on prod
+
+## HTTPS 対応
+
+### GCP でうつコマンド
+
+```
+# create the namespace for cert-manager
+kubectl create namespace cert-manager
+# add the jetstack helm repository
+helm repo add jetstack https://charts.jetstack.io
+# update your local helm chart repository cache
+helm repo update
+# install the cert-manager helm chart
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version v1.2.0 \
+  --create-namespace
+# install the CRDs
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.2.0/cert-manager.crds.yaml
+```
+
+参考: `https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm`
