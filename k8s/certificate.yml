@@ -11,10 +11,3 @@ spec:
   dnsNames:
     - seekstar.app
     - www.seekstar.app
-  acme:
-    config:
-      - http01:
-          ingressClass: nginx
-        domains:
-          - seekstar.app
-          - www.seekstar.app
