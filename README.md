@@ -85,7 +85,7 @@ minikube start --driver=virtualbox
 
 ```
 brew install travis
-travis login --github-token $GITHUB_TOKEN_TRAVIS
-travis encrypt-file service-account.json -r Hironari-Saito/multi-k8s --com
+travis login --github-token $GITHUB_TOKEN_TRAVIS --pro
+travis encrypt-file service-account.json -r Hironari-Saito/multi-k8s --pro
 ## 生成されたファイルをコミットし、元のファイルは削除する。.travis.ymlに生成されたコマンドを記載する。
 ```
