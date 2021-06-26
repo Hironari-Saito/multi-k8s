@@ -108,3 +108,14 @@ chmod 700 get_helm.sh
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install my-release ingress-nginx/ingress-nginx
 ```
+
+## Workflow
+
+1. checkout a branch
+2. make changes
+3. commit changes
+4. push to github branch
+5. create a PR
+6. wait for tests to show up 'green'
+7. merge the PR
+8. see changes appear on prod
