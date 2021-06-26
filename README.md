@@ -80,3 +80,12 @@ minikube start --driver=virtualbox
 3. create Google Cloud project
 4. Enabling billing for the project
 5. add deployment scripts to the repo
+
+## travis に GCE のアクセス用の Json ファイルを配置するために暗号化する。
+
+```
+brew install travis
+travis login --github-token $GITHUB_TOKEN_TRAVIS
+travis encrypt-file service-account.json -r Hironari-Saito/multi-k8s
+## 生成されたファイルをコミットし、元のファイルは削除する。.travis.ymlに生成されたコマンドを記載する。
+```
