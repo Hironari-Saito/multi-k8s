@@ -89,3 +89,22 @@ travis login --github-token $GITHUB_TOKEN_TRAVIS --pro
 travis encrypt-file service-account.json -r Hironari-Saito/multi-k8s --pro
 ## 生成されたファイルをコミットし、元のファイルは削除する。.travis.ymlに生成されたコマンドを記載する。
 ```
+
+## Google Cloud Platform で設定
+
+```
+gcloud config set project <project_id>
+gcloud config set compute/zone <zone>
+gcloud container clusters get-credentials <cluster_name>
+kubectl create secret generic pgpassword --from-literal PGPASSWORD=<postgresql password>
+
+# Helm v3
+## link to the docs https://helm.sh/docs/intro/install/#from-script
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
+# install ingress-nginx
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install my-release ingress-nginx/ingress-nginx
+```
