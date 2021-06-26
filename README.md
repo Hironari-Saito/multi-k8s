@@ -142,3 +142,18 @@ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.2
 ```
 
 参考: `https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm`
+
+## Local Development
+
+### skaffold
+
+Docker-compose ではローカルのコードと container を同期できる。 k8s ではできない。 -> 開発がめんどくさくなる
+
+`Skaffold`を用いることでその問題を解決できる。
+
+ローカルディレクトリと kubernetes との間を仲介する。
+
+- mode#1: rebuild client image from scratch, update k8s
+- mode#2: inject updated files into the client pod, rely on react app to automatically update itself
+
+[Skaffold](https://skaffold.dev/docs/install/)
